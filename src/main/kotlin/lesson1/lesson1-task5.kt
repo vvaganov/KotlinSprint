@@ -4,7 +4,7 @@ import kotlin.math.min
 
 fun main(){
 
-    val second = 6480
+    val second: Int = 6480
 
     val hour = second/3600
     val minute = (second/60 )% 60
