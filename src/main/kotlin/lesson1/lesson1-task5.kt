@@ -2,17 +2,19 @@ package lesson1
 
 import kotlin.math.min
 
+const val secondInMinute = 60
+const val minuteInHour = 60
+
 fun main(){
 
-    val second: Int = 6480
+    val secondInSpace: Int = 6480
+    val secondInHour = secondInMinute * minuteInHour
 
-    val hour = second/3600
-    val minute = (second/60 )% 60
-    val seconds = (second % minute)
+    val hour = secondInSpace/secondInHour
+    val minute = (secondInSpace/secondInMinute) % minuteInHour
+    val seconds = (secondInSpace % secondInMinute)
 
-    println(hour)
-    println(minute)
-    println(seconds)
+    val timesInCosmos = String.format("%02d:%02d:%02d", hour, minute,seconds)
 
-    println("0$hour:$minute:0$seconds")
+    println(timesInCosmos)
 }
