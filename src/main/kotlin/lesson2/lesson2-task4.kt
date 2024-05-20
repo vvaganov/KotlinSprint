@@ -11,6 +11,6 @@ fun main() {
     val cristalOreBaf: Double = crystalOre * unitBafInPercent
     val ironOreBaf = ironOre * unitBafInPercent
 
-    println("cristalOreBaf: ${cristalOreBaf.toInt()}")
-    println("ironOreBaf: $ironOreBaf")
+    println("cristalOreBaf : ${cristalOreBaf.toInt()}")
+    println("ironOreBaf : $ironOreBaf")
 }
