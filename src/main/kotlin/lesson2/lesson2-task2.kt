@@ -5,6 +5,7 @@ fun main() {
     val salaryOfEmployees = 30000
     val numberOfInterns = 30
     val salaryOfInterns = 20000
+
     val theWageFundEmployees = numberOfEmployees * salaryOfEmployees
     val theWageFundInterns = numberOfInterns * salaryOfInterns
     val theGeneralSalaryFund = theWageFundInterns + theWageFundEmployees
