@@ -13,6 +13,8 @@ fun main() {
     val theTotalAmount = depositAmount * ((1 + percentCoefficient).pow(depositPeriod))
     val totalAmount = ((theTotalAmount * degreeOfRounding).roundToLong()).toDouble() / degreeOfRounding
 
+
     println(totalAmount)
+    println(String.format("%.3f", theTotalAmount)) // 1536438,428
 }
 
