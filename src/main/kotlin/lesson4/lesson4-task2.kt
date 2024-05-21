@@ -22,4 +22,3 @@ fun main() {
                 "${(cargoTwoVolume >= AVERAGE_WEIGHT_MIN && cargoTwoWeight <= AVERAGE_WEIGHT_MAX) && cargoTwoVolume < AVERAGE_WEIGHT_VOLUME}"
     )
 }
-
