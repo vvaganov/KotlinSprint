@@ -10,13 +10,6 @@ fun main() {
     var cargoVolume = 80
 
 
-    fun compareCargoParameters(weight: Int, volume: Int) {
-        println(
-            "Груз весом $weight кг. и объемом $volume л. не соответствует категории \"Average\": " +
-                    "${(cargoWeight >= AVERAGE_WEIGHT_MIN && cargoWeight <= AVERAGE_WEIGHT_MAX) && cargoVolume < AVERAGE_WEIGHT_VOLUME}"
-        )
-    }
-
     compareCargoParameters(cargoWeight, cargoVolume)
 
     cargoWeight = 50
@@ -24,4 +17,11 @@ fun main() {
 
     compareCargoParameters(cargoWeight, cargoVolume)
 
+}
+
+fun compareCargoParameters(weight: Int, volume: Int) {
+    println(
+        "Груз весом $weight кг. и объемом $volume л. не соответствует категории \"Average\": " +
+                "${(weight >= AVERAGE_WEIGHT_MIN && weight <= AVERAGE_WEIGHT_MAX) && volume < AVERAGE_WEIGHT_VOLUME}"
+    )
 }
