@@ -19,4 +19,5 @@ fun main() {
     else "Неудача!"
 
     println(result)
+    println("Выигрышные числа: $theCorrectNumberOne, $theCorrectNumberTwo")
 }
