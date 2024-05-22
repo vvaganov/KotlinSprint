@@ -11,6 +11,7 @@ fun main(){
     val totalNumberOfEmployees = numberOfEmployees + numberOfInterns
     val averageSalary = theGeneralSalaryFund/totalNumberOfEmployees
 
+
     println(theWageFundEmployees)
     println(theGeneralSalaryFund)
     println(averageSalary)
