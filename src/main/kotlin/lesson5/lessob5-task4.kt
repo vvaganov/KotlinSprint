@@ -1,7 +1,5 @@
 package lesson5
 
-import java.security.Principal
-
 const val USER_NAME = "Zaphod"
 const val USER_PASSWORD = "PanGalactic"
 
