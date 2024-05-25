@@ -2,9 +2,8 @@ package org.example.lesson4
 
 fun main() {
 
-    val trainingDay = 2
-    val checkTrainingDay = trainingDay % 2
-    val gisEven = checkTrainingDay == 0
+    val trainingDay = 3
+    val gisEven = trainingDay % 2 == 0
 
 
     println(
