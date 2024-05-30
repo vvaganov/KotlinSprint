@@ -4,11 +4,13 @@ import kotlin.random.nextInt
 fun main() {
 
     var numberOfPairs = 3
+    var randomInt: Int
+    var randomChar: Char
 
     while (numberOfPairs > 0) {
         numberOfPairs--
-        val randomInt = Random.nextInt(0..9)
-        val randomChar = ('a'..'z').random()
+        randomInt = Random.nextInt(0..9)
+        randomChar = ('a'..'z').random()
         val password = "$randomChar$randomInt"
         print(password)
     }
