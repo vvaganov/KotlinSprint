@@ -1,9 +1,9 @@
 fun main() {
     println("Укажите время в секундах:")
-    val timer = readln().toInt()
+    val numberOfSeconds = readln().toInt()
 
-    for (i in timer downTo 0) {
-        println(i)
+    for (i in numberOfSeconds downTo 0) {
+        println("Осталось $i секунд...")
         Thread.sleep(1000)
     }
     println("Время вышло!")
