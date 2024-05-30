@@ -4,12 +4,14 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 fun main() {
+    var verificationCode: Int
+    var randomCode: Int
 
     do {
-        val randomCode = Random.nextInt(1000..9999)
+        randomCode = Random.nextInt(1000..9999)
         println("Ваш код авторизации: $randomCode")
         println("Введите код:")
-        val verificationCode = readln().toInt()
+        verificationCode = readln().toInt()
     } while (randomCode != verificationCode)
     println("Добро пожаловать!")
 }
