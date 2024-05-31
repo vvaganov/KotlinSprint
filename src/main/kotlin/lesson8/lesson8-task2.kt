@@ -2,19 +2,27 @@ fun main() {
 
     val listOfProducts = arrayOf("Морковь", "Лук", "Свекла", "Картофель", "Томат", "Сахар", "Соль", "Перец")
     println("Введите название ингридиента")
-    val getIngredient = readln()
-    var theElementIsPresent = false
+    val ingredient = readln()
 
-    for (i in listOfProducts.indices) {
-        if (listOfProducts[i] == getIngredient) {
-            theElementIsPresent = true
-            break
+    for (i in listOfProducts) {
+        if (i == ingredient) {
+            println("Ингридиент $ingredient в рецепте есть.")
+            return
         }
     }
-
-    if (theElementIsPresent) {
-        println("Ингридиент $getIngredient присутствует")
-    } else {
-        println("Такого ингридиента нет в списке")
-    }
+    println("Ингридиента $ingredient в рецепте нет.")
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
