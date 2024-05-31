@@ -1,6 +1,6 @@
 fun main() {
 
-    println("Введите количество планируемых ингридиентов")
+    println("Введите планируемых количество ингридиентов")
     val arraySize = readln().toInt()
     val arrayIngredients = Array(arraySize) { "0" }
     var ingredient: String
