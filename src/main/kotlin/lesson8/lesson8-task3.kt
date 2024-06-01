@@ -4,7 +4,7 @@ fun main() {
     println("Введите название ингридиента")
     val ingredient = readln()
 
-    if (listOfProducts.contains(ingredient)) {
+    if (ingredient in listOfProducts) {
         println("Ингридиент $ingredient в списке есть!")
     } else {
         println("Такого ингридиета в списке нет!")
