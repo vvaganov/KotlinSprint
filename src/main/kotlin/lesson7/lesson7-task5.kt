@@ -20,10 +20,3 @@ fun main() {
     } while (passwordLength < minPasswordLength)
 
 }
-
-
-
-
-
-
-
