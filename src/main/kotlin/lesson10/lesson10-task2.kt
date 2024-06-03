@@ -1,17 +1,19 @@
 package lesson10
 
 fun main() {
+
+    val length = 4
     println("Придумайте логин:")
     val login = readln()
     println("Придумайте пароль:")
     val password = readln()
-    checkTheLength(login, password)
-}
-
-fun checkTheLength(login: String, password: String) {
-    if (login.length < 4 || password.length < 4) {
+    if (checkTheLength(login, length) || checkTheLength(password, length)) {
         println("Логин или пароль не достаточно длинные")
     } else {
-        println("Вы успешно прошли регистрацию!")
+        println("Регистрация пройдена успешно")
     }
+}
+
+fun checkTheLength(meaning: String, length: Int): Boolean {
+    return meaning.length < length
 }
