@@ -8,7 +8,7 @@ fun main() {
     val authorization = getBasket(getToken(LOGIN, PASSWORD))
     if (authorization) {
         println(basket.joinToString(", "))
-    }else{
+    } else {
         println("Вы не прошли авторизацию")
     }
 }
@@ -38,6 +38,3 @@ fun getBasket(token: String?): Boolean {
     }
     return validation
 }
-
-
-
