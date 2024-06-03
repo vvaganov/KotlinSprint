@@ -1,30 +1,27 @@
 package lesson9
 
 fun main() {
-    var listSize = 5
+    var listSize = 3
     val listIngredients = mutableListOf<String>()
     var ingredient: String
 
-    while (listSize > 0) {
+    do {
         println("Введите ингридиент:")
         ingredient = readln()
-        for (i in listIngredients)
-            if (i == ingredient) {
-                listSize++
-            }
-        listIngredients.add(ingredient)
-        listSize--
-    }
+        if (listIngredients.contains(ingredient)) {
+            continue
+        } else if (listIngredients.isEmpty()) {
+            listIngredients.add(ingredient)
+            listSize--
+        } else {
+            listIngredients.add(ingredient)
+            listSize--
+        }
+    } while (listSize > 0)
 
-    val listSort = listIngredients.distinct().sorted().toMutableList()
-    val upperFirstElement = listSort[0].uppercase()
-    listSort[0] = upperFirstElement
+    val listSort = listIngredients.sorted().toMutableList()
+    listSort[0] = listSort[0].uppercase()
     val stringListIngredients = listSort.joinToString()
 
     println(stringListIngredients)
 }
-
-
-
-
-
