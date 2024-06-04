@@ -2,39 +2,41 @@ package lesson10
 
 const val LOGIN = "user"
 const val PASSWORD = "qwerty"
+val BASKET: MutableList<Any> = mutableListOf("Молоко", "Хлеб", 1)
 
 fun main() {
-    val basket = listOf<Any>("Картошка", "Морковь", "Свекла")
-    val authorization = getBasket(getToken(LOGIN, PASSWORD))
-    if (authorization) {
-        println(basket.joinToString(", "))
+
+    val token = authorization(LOGIN, PASSWORD)
+    println(getBasket(token))
+
+}
+
+fun authorization(login: String, password: String): String? {
+    return if (login == LOGIN && password == PASSWORD) {
+        getToken()
     } else {
-        println("Вы не прошли авторизацию")
+        null
     }
 }
 
-fun getToken(login: String, password: String): String? {
-    if (login == LOGIN && password == PASSWORD) {
-        var token: MutableList<Char> = mutableListOf()
-        val tokenLength = 32
-        val digits = '0'..'9'
-        val lowercaseLetters = 'a'..'z'
-        val uppercaseLetters = 'A'..'Z'
-        val allChars = digits + lowercaseLetters + uppercaseLetters
-        token.add(digits.random())
-        token.add(lowercaseLetters.random())
-        token.add(uppercaseLetters.random())
-        token = (token + (1..(tokenLength - token.size)).map { allChars.random() }).shuffled().toMutableList()
-        return token.joinToString("")
-    } else {
-        return null
-    }
+fun getToken(): String {
+    var token: MutableList<Char> = mutableListOf()
+    val tokenLength = 32
+    val digits = '0'..'9'
+    val lowercaseLetters = 'a'..'z'
+    val uppercaseLetters = 'A'..'Z'
+    val allChars = digits + lowercaseLetters + uppercaseLetters
+    token.add(digits.random())
+    token.add(lowercaseLetters.random())
+    token.add(uppercaseLetters.random())
+    token = (token + (1..(tokenLength - token.size)).map { allChars.random() }).shuffled().toMutableList()
+    return token.joinToString("")
 }
 
-fun getBasket(token: String?): Boolean {
-    var validation = false
-    if (token != null) {
-        validation = true
+fun getBasket(token: String?): Any {
+    return if (token != null) {
+        BASKET
+    } else {
+        println("Вы не авторизованы")
     }
-    return validation
 }
