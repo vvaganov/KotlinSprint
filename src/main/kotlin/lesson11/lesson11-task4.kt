@@ -11,13 +11,13 @@ class Ingredients(
 class RecipeCategory(
     val name: String,
     val cover: String,
-    val listOfRecipes: MutableList<Any> = mutableListOf(),
+    val listOfRecipes: MutableList<Recipe> = mutableListOf(),
 ) {}
 
 class Recipe(
     val name: String,
     val cover: String,
-    val mapIngredients: MutableMap<String, Int> = mutableMapOf(),
+    val mapIngredients: MutableList<Ingredients> = mutableListOf(),
     val numberOfServings: Int,
     val inFavorite: Boolean,
 ) {}
