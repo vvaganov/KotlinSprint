@@ -10,6 +10,6 @@ fun main() {
         ingredient = readln()
         setIngredients.add(ingredient)}
 
-    val listSort = setIngredients.sorted().joinToString(", ")
+    val listSort = setIngredients.sorted().joinToString(", ").replaceFirstChar { it.uppercase() }
     println(listSort)
 }
