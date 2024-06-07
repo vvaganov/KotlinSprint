@@ -1,6 +1,6 @@
 package org.example.lesson12
 
-const val RATIO = 273.15
+const val CONVERSION_KELVIN_IN_CELSIUS = 273.15
 
 fun main() {
     val weatherForecast = NewWeatherInit(300, 295, true)
@@ -8,21 +8,21 @@ fun main() {
 }
 
 class NewWeatherInit(
-    daytimeTemperature: Int,
+    dayTemperature: Int,
     nightTemperature: Int,
-    precipitationDuringTheDay: Boolean,
+    precipitationDay: Boolean,
 ) {
 
-    val _daytimeTemperature = daytimeTemperature - RATIO.toInt()
-    val _nightTemperature = nightTemperature - RATIO.toInt()
-    val _precipitationDuringTheDay = precipitationDuringTheDay
+    val dayTimeTemperature = dayTemperature - CONVERSION_KELVIN_IN_CELSIUS.toInt()
+    val nightTimeTemperature = nightTemperature - CONVERSION_KELVIN_IN_CELSIUS.toInt()
+    val precipitationDuringTheDay = precipitationDay
 
     init {
         println(
             """Прогноз погоды:
-            |Днем: $_daytimeTemperature
-            |Ночью: $_nightTemperature
-            |Осадки в течении дня: $_precipitationDuringTheDay
+            |Днем: $dayTimeTemperature
+            |Ночью: $nightTimeTemperature
+            |Осадки в течении дня: $precipitationDuringTheDay
             |________________________________________________
         """.trimMargin()
         )
