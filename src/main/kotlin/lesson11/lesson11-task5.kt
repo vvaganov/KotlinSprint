@@ -1,4 +1,4 @@
-import lesson10.getRandomPassword
+
 
 fun main() {
     val forum = Forum()
