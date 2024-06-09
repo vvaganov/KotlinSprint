@@ -7,10 +7,11 @@ fun main() {
         PhoneBook("Евгений", 89996931476, "null"),
         PhoneBook("Анатолий", 89537648231, "Камаз"),
         PhoneBook("Михаил", 79097596452, "Газпром"),
+        PhoneBook("Михаил", 79097596452, "Газпром"),
     )
 
-    contactList.forEach { it.printCompany() }
-
+    val qwe = contactList.map { it.company }.filterNotNull().toSet()
+    println(qwe)
 }
 
 class PhoneBook(
@@ -23,11 +24,5 @@ class PhoneBook(
         company = company ?: "не указано"
         println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: $company ")
         println("_______________________")
-    }
-
-    fun printCompany() {
-        if (company != null) {
-            println(company)
-        }
     }
 }
