@@ -1,14 +1,16 @@
+import java.lang.NumberFormatException
+
 fun main() {
 
     val contactList: MutableList<MyPhoneNumber> = mutableListOf()
     println("Введите имя контакта:")
     val name = readln()
-    try{
+    try {
         println("Введите номер телефона:")
         val phone = readln().toLong()
-    }
-    catch(e: Exception){
+    } catch (e: NumberFormatException) {
         println(e.message)
+
     }
     println("Введите компанию:")
     val company = readln()
