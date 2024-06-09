@@ -10,8 +10,8 @@ fun main() {
         PhoneBook("Михаил", 79097596452, "Газпром"),
     )
 
-    val qwe = contactList.map { it.company }.filterNotNull().toSet()
-    println(qwe)
+    val companyList = contactList.map { it.company }.filterNotNull().toSet()
+    println(companyList)
 }
 
 class PhoneBook(
