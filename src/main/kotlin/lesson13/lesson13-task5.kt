@@ -9,7 +9,7 @@ fun main() {
         println("Введите номер телефона:")
         val phone = readln().toLong()
     } catch (e: NumberFormatException) {
-        println(e.message)
+        println(e::class.simpleName)
 
     }
     println("Введите компанию:")
@@ -23,8 +23,7 @@ class MyPhoneNumber(
     var company: String? = null
 ) {
     fun printContact() {
-        company = company ?: "не указано"
-        println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: $company ")
+        println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: ${company ?: "не указано"}")
         println("_______________________")
     }
 }
