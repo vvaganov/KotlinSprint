@@ -9,7 +9,7 @@ class PhoneList(
     var company: String? = null
 ) {
     fun printContact() {
-        company = company?: "не указано"
+        company = company?: "не заполнено"
         println("- Имя: $name\n- Номер: $phoneNumber\n- Компания: $company ")
     }
 }
