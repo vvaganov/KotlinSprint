@@ -3,15 +3,17 @@ package lesson14
 fun main() {
     val cargo1 = ShipCargo("Cargo1", 15, 2000, 100)
     cargo1.getShipProperties()
-    cargo1.cargoLoadOperations()
+    cargo1.performLoading()
+    println()
 
     val icebreakerShip1 = IcebreakerShip("icebreakerShip1", 5, 300, 50)
     icebreakerShip1.getShipProperties()
-    icebreakerShip1.IcebreakerLoadOperations()
+    icebreakerShip1.performLoading()
+    println()
 
     val liner1 = LinerShip()
     liner1.getShipProperties()
-    liner1.linerLoadingOperations()
+    liner1.performLoading()
 
 }
 
@@ -22,7 +24,7 @@ open class LinerShip(
     val passengerCapacity: Int = 2000,
     val breakTheIce: Boolean = false,
 ) {
-    fun linerLoadingOperations() {
+    open fun performLoading() {
         println("Способ погрузки ${name} выдвигает горизонтальный трап со шкафута")
     }
 
@@ -42,7 +44,7 @@ class ShipCargo(
     passengerCapacity: Int,
 ) : LinerShip(name, speed, loadCapacity, passengerCapacity) {
 
-    fun cargoLoadOperations() {
+    override fun performLoading() {
         println("Способ погрузки ${name} активирует погрузочный кран")
     }
 }
@@ -54,7 +56,7 @@ class IcebreakerShip(
     passengerCapacity: Int,
 ) : LinerShip(name, speed, loadCapacity, passengerCapacity, breakTheIce = true) {
 
-    fun IcebreakerLoadOperations() {
+    override fun performLoading() {
         println("Способ погрузки ${name} открывает ворота со стороны кормы")
     }
 }
