@@ -3,7 +3,7 @@ fun main() {
 
     val contactList: MutableList<MyPhoneNumber> = mutableListOf()
 
-    while (count > 0) {
+    for (i in 1..count) {
         println("Введите имя контакта:")
         val name = readln()
         println("Введите компанию:")
@@ -15,7 +15,6 @@ fun main() {
         } else {
             contactList.add(MyPhoneNumber(name, phoneNumber, company))
         }
-        count--
     }
     contactList.forEach { it.printContact() }
 }
