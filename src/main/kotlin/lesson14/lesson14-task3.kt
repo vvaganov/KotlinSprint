@@ -1,17 +1,19 @@
 package lesson14
 
 const val PI = 3.14
+const val BLACK_COLOR = "black"
+const val WHITE_COLOR = "white"
 
 fun main() {
-    val listFigure: MutableList<Figure> = mutableListOf()
-    listFigure.run {
-        add(Circle("black", 15))
-        add(Circle("white", 20))
-        add(Circle("black", 25))
-        add(Rectangle("white", 15, 10))
-        add(Rectangle("black", 10, 30))
-        add(Rectangle("white", 20, 10))
-    }
+    val listFigure = listOf(
+        (Circle(BLACK_COLOR, 15)),
+        (Circle(WHITE_COLOR, 20)),
+        (Circle(BLACK_COLOR, 25)),
+        (Rectangle(WHITE_COLOR, 15, 10)),
+        (Rectangle(BLACK_COLOR, 10, 30)),
+        (Rectangle(WHITE_COLOR, 20, 10))
+    )
+
     println(
         "Сумма периметров всех черных фигур ${
             listFigure.filter { it.color == "black" }.sumOf { it.getThePerimeterOfTheFigure() }
