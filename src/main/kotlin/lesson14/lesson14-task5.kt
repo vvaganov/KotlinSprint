@@ -10,31 +10,47 @@ fun main() {
     chat.addThreadMessage(3, "Витек", "От Витька тоже привет", 1)
 
     chat.printChat()
-
-
 }
 
 class Chat(
-    val message: MutableList<Message> = mutableListOf()
+    val messageList: MutableList<Message> = mutableListOf(),
+    val childMessageList: MutableList<ChildMessage> = mutableListOf()
 ) {
+
     fun addMessage(id: Int, author: String, text: String) {
-        message.add(Message(id, author, text))
+        messageList.add(Message(id, author, text))
     }
 
-
     fun addThreadMessage(id: Int, author: String, text: String, parentMessageId: Int) {
-        val getMessage = message.first { it.id == parentMessageId }
-        getMessage.childMessageList.add(ChildMessage(id, author, text, parentMessageId))
+        childMessageList.add(ChildMessage(id, author, text, parentMessageId))
+
+
     }
 
     fun printChat() {
+        val groupMessage = messageList.groupBy { it.id }
+        val groupedChildMessage = childMessageList.groupBy { it.parentMessageId }
 
-        for (i in message) {
-            println("${i.author}: ${i.text} ")
-            for (j in i.childMessageList) {
-                println("\t ${j.author}: ${j.text}")
+        for (i in groupMessage){
+            val a = i.key
+            println(a)
+            for (j in groupedChildMessage){
+                val b = j.key
+
             }
         }
+
+
+
+//        println(groupMessage)
+//        println(groupedChildMessage)
+
+//        for (i in messageList) {
+//            println("${i.author}: ${i.text} ")
+//            for (j in groupedChildMessage) {
+//                println("\t ${j.}: ${j.text}")
+//            }
+//        }
     }
 }
 
@@ -42,12 +58,11 @@ open class Message(
     val id: Int,
     val author: String,
     val text: String,
-    val childMessageList: MutableList<ChildMessage> = mutableListOf()
-) {}
+    )
 
 class ChildMessage(
     id: Int,
     author: String,
     text: String,
     val parentMessageId: Int,
-) : Message(id, author, text) {}
+) : Message(id, author, text)
