@@ -2,43 +2,42 @@ package lesson15
 
 fun main() {
     val dusk = Duck()
-    dusk.startTheFlight()
-    dusk.startSwimming()
+    dusk.fly()
+    dusk.swim()
 
     val seagull = Seagull()
-    seagull.startTheFlight()
+    seagull.fly()
 
     val carp = Carp()
-    carp.startSwimming()
+    carp.swim()
 }
 
-
-interface FlyingCreatures{
-    fun startTheFlight(){}
+interface Flying{
+    fun fly()
 }
 
-interface FloatingCreatures{
-    fun startSwimming(){}
+interface Floating{
+    fun swim()
 }
 
-class Duck : FloatingCreatures, FlyingCreatures {
-    override fun startTheFlight() {
-        println("Утка полетела юг")
+class Duck : Floating, Flying {
+    override fun fly() {
+        println("Утка полетела на юг")
     }
 
-    override fun startSwimming() {
+    override fun swim() {
         println("Утка плавает на озере")
     }
 }
 
-class Seagull(): FlyingCreatures{
-    override fun startTheFlight() {
+class Seagull(): Flying{
+    override fun fly() {
         println("Чайка летает над морем")
     }
 }
 
-class Carp() : FloatingCreatures{
-    override fun startSwimming() {
+class Carp() : Floating{
+    override fun swim() {
         println("Карась плавает в речке")
     }
 }
