@@ -16,12 +16,12 @@ fun main() {
 
     println(
         "Сумма периметров всех черных фигур ${
-            listFigure.filter { it.color == "black" }.sumOf { it.getThePerimeterOfTheFigure() }
+            listFigure.filter { it.color == BLACK_COLOR }.sumOf { it.getThePerimeterOfTheFigure() }
         }"
     )
     println(
         "Сумма площадей у всех белых фигур: ${
-            listFigure.filter { it.color == "white" }.sumOf { it.getTheAreaOfTheFigure() }
+            listFigure.filter { it.color == BLACK_COLOR }.sumOf { it.getTheAreaOfTheFigure() }
         }"
     )
 }
