@@ -12,11 +12,11 @@ fun main() {
     carp.swim()
 }
 
-interface Flying{
+interface Flying {
     fun fly()
 }
 
-interface Floating{
+interface Floating {
     fun swim()
 }
 
@@ -30,13 +30,13 @@ class Duck : Floating, Flying {
     }
 }
 
-class Seagull(): Flying{
+class Seagull() : Flying {
     override fun fly() {
         println("Чайка летает над морем")
     }
 }
 
-class Carp() : Floating{
+class Carp() : Floating {
     override fun swim() {
         println("Карась плавает в речке")
     }
