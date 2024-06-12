@@ -3,24 +3,22 @@ package lesson14
 fun main() {
     val mars = Planet("Марс", mutableListOf(Satellite("Фобос"), Satellite("Деймос")))
 
-    println("Планет ${mars.name} имеет спутники: ${mars.satellite.joinToString(" и ") { it.name }}")
+    println("Планет ${mars.name} имеет спутники: ${mars.isSatellite.joinToString(" и ") { it.name }}")
 }
 
-open class TheCosmicBody(
+open class CosmicBody(
     val name: String,
-    val atmosphere: Boolean = false,
-    val suitableForDisembarkation: Boolean = false,
-    val thePresenceOfSatellites: Boolean = false,
-) {}
+    val isAtmosphere: Boolean = false,
+    val isSuitableForDisembarkation: Boolean = false,
+    val isPresenceOfSatellites: Boolean = false,
+)
 
 class Planet(
     name: String,
-    val satellite: MutableList<Satellite>
-) : TheCosmicBody(name) {}
+    val isSatellite: MutableList<Satellite>
+) : CosmicBody(name)
 
 
 class Satellite(
     name: String,
-) : TheCosmicBody(name) {}
-
-
+) : CosmicBody(name)
