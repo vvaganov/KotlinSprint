@@ -3,10 +3,8 @@ package lesson15
 fun main() {
 
     val send = WeatherServe()
-    val temp = Temperature(32)
-    send.sendToTheServer(temp.temperature)
-    val amount = PrecipitationAmount("Мало")
-    send.sendToTheServer(amount.precipitationAmount)
+    send.sendToTheServer(Temperature(32))
+    send.sendToTheServer(PrecipitationAmount("Много"))
 }
 
 abstract class WeatherStationStats
@@ -19,11 +17,12 @@ class PrecipitationAmount(
     val precipitationAmount: String,
     ) : WeatherStationStats()
 
-class WeatherServe{
-    fun sendToTheServer(param: Int){
-        println("Отправляем на сервет текущую температуру: $param")
-    }
-    fun sendToTheServer(param: String){
-        println("Оправляем на сервер количество осадков: $param")
+class WeatherServe {
+    fun sendToTheServer(weatherData: WeatherStationStats) {
+        when (weatherData) {
+            is PrecipitationAmount -> println("Отправляем на срвер количество осадков - ${weatherData.precipitationAmount} ")
+            is Temperature -> println("Отправляем на сервер текущую температуру - ${weatherData.temperature}")
+        }
     }
 }
+
