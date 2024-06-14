@@ -2,7 +2,7 @@ package lesson15
 
 fun main() {
 
-    val user1 = User()
+    val user1 = RegularUser()
     user1.writeMessage()
     user1.readMessage()
     println()
@@ -13,12 +13,12 @@ fun main() {
     admin1.deleteUser()
 }
 
-abstract class Users {
+abstract class User {
     abstract fun writeMessage()
     abstract fun readMessage()
 }
 
-class Admin : Users() {
+class Admin : User() {
     override fun writeMessage() {
         println("Админ пишет сообщение")
     }
@@ -36,7 +36,7 @@ class Admin : Users() {
     }
 }
 
-class User : Users() {
+class RegularUser: User() {
     override fun writeMessage() {
         println("Пользователь пишет сообщение")
     }
