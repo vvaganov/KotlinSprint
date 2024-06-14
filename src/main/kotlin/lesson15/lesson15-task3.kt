@@ -14,18 +14,11 @@ fun main() {
 }
 
 abstract class Users {
-    abstract val isWrite: Boolean
-    abstract val isRead: Boolean
     abstract fun writeMessage()
     abstract fun readMessage()
 }
 
-class Admin(
-    override val isWrite: Boolean = true,
-    override val isRead: Boolean = true,
-) : Users() {
-    val isDeleteMessage: Boolean = true
-    val isDeleteUser: Boolean = true
+class Admin : Users() {
     override fun writeMessage() {
         println("Админ пишет сообщение")
     }
@@ -43,10 +36,7 @@ class Admin(
     }
 }
 
-class User(
-    override val isWrite: Boolean = true,
-    override val isRead: Boolean = true,
-) : Users() {
+class User : Users() {
     override fun writeMessage() {
         println("Пользователь пишет сообщение")
     }
