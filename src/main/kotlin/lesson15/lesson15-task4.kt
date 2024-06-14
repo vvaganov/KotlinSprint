@@ -1,38 +1,40 @@
 package lesson15
 
 fun main() {
-    val guitar = MusicalInstruments(1, "Enya", 100)
-    val strings = Accessories(1, "Music Life", 20, 1)
+    val guitar = MusicalInstrument(1, "Enya", 100)
+    val strings = Accessorie(1, "Music Life", 20, 1)
     println("Гитара \"${guitar.title}\" - количество единиц на складе ${guitar.numberUnits}")
     guitar.searchAccessories()
     println("Струны \"${strings.title}\" - количество единиц на складе ${strings.numberUnits}")
 }
 
-interface Products {
-    val id: Int
-    val title: String
-    val numberUnits: Int
+
+abstract class Product {
+    abstract val id: Int
+    abstract val title: String
+    abstract val numberUnits: Int
 }
 
-interface Search {
+interface Searchable {
     fun searchAccessories() {
         println("Выполняется поиск по Id")
     }
 }
 
-class MusicalInstruments(
+class MusicalInstrument(
     override val id: Int,
     override val title: String,
-    override val numberUnits: Int,
-) : Products, Search {
+    override val numberUnits: Int
+
+) : Product(), Searchable {
     override fun searchAccessories() {
         super.searchAccessories()
     }
 }
 
-class Accessories(
+class Accessorie(
     override val id: Int,
     override val title: String,
     override val numberUnits: Int,
     val instrumentsId: Int,
-) : Products
+) : Product()
