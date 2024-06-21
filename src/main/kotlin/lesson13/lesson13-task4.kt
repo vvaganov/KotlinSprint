@@ -1,7 +1,7 @@
 fun main() {
     var count = 3
 
-    val contactList: MutableList<MyPhoneNumbe> = mutableListOf()
+    val contactList: MutableList<MyPhoneNumber> = mutableListOf()
 
     for (i in 1..count) {
         println("Введите имя контакта:")
@@ -13,13 +13,13 @@ fun main() {
         if (phoneNumber == null) {
             println("Вы не ввели номер телефона")
         } else {
-            contactList.add(MyPhoneNumbe(name, phoneNumber, company))
+            contactList.add(MyPhoneNumber(name, phoneNumber, company))
         }
     }
     contactList.forEach { it.printContact() }
 }
 
-class MyPhoneNumbe(
+class MyPhoneNumbers(
     val name: String,
     val phoneNumber: Long,
     var company: String? = null
