@@ -5,9 +5,14 @@ fun main() {
 
     println("Заказ ${order1.orderNumber}, статус: ${order1.getStatus()}")
 
-    changeOrderStatus(order1, "Готовится")
+    order1.changeOrderStatus(order1, "Готовиться")
 
     println("Заказ ${order1.orderNumber}, статус: ${order1.getStatus()}")
+
+    order1.changeOrderStatus(order1, "Приготовлен")
+
+    println("Заказ ${order1.orderNumber}, статус: ${order1.getStatus()}")
+
 }
 
 class Order(
@@ -16,11 +21,10 @@ class Order(
 ) {
     fun getStatus() = orderStatus
 
-    fun changeStatus(orderStat: String) {
+    private fun changeStatus(orderStat: String) {
         orderStatus = orderStat
     }
-}
-
-fun changeOrderStatus(order: Order, orderStat: String) {
-    order.changeStatus(orderStat)
+    fun changeOrderStatus(order: Order, orderStat: String) {
+        changeStatus(orderStat)
+    }
 }
