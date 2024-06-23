@@ -11,9 +11,7 @@ fun main() {
     println(gamer.getHealth())
     gamer.takeDamage(3)
     gamer.restoreHealth()
-
-
-}
+    }
 
 class Gamer(
     val name: String = "",
