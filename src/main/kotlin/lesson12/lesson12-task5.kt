@@ -16,13 +16,31 @@ fun main() {
             )
         )
     }
-    println("Сренняя температура днем: " + String.format("%.1f", weatherList.map { it.daytimeTemperature }.average()))
-    println("Средняя температра ночью: " + String.format("%.1f", weatherList.map { it.nightTemperature }.average()))
-    println("Дней с остадками: " + weatherList.filter { it.precipitationDuringTheDay }.size)
+
+    val daytimeTemperatureList: MutableList<Int> = mutableListOf()
+    val nightTemperatureList: MutableList<Int> = mutableListOf()
+    val precipitationList: MutableList<Boolean> = mutableListOf()
+
+    for (i in weatherList) {
+        daytimeTemperatureList.add(i.daytimeTemperature)
+        nightTemperatureList.add(i.nightTemperature)
+        if (i.precipitationDuringTheDay == true) {
+            precipitationList.add(i.precipitationDuringTheDay)
+        }
+    }
+
+    println("Средняя температра днем: " + String.format("%.1f", daytimeTemperatureList.average()))
+    println("Средняя температура ночью: " + String.format("%.1f", nightTemperatureList.average()))
+    println("Количество дней с осадками: ${precipitationList.size}")
 }
 
 class Weather(
-    val daytimeTemperature: Int,
-    val nightTemperature: Int,
-    var precipitationDuringTheDay: Boolean,
-) {}
+    _daytimeTemperature: Int,
+    _nightTemperature: Int,
+    _precipitationDuringTheDay: Boolean,
+) {
+
+    val daytimeTemperature = _daytimeTemperature
+    val nightTemperature = _nightTemperature
+    val precipitationDuringTheDay = _precipitationDuringTheDay
+}
