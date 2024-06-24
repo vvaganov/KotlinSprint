@@ -2,11 +2,11 @@ package lesson17
 
 fun main() {
     val folder = Folder()
-    println( folder.name)
+    println(folder.name)
 
 }
 
-class Folder{
+class Folder {
 
     val name: String = "Projects"
         get() = if (isSecret) {
