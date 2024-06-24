@@ -19,7 +19,7 @@ fun main() {
     contactList.forEach { it.printContact() }
 }
 
-class MyPhoneNumber(
+class MyPhoneNumbers(
     val name: String,
     val phoneNumber: Long,
     var company: String? = null
