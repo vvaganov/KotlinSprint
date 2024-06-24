@@ -1,4 +1,3 @@
-import lesson13.MyPhoneNumber
 import java.lang.NumberFormatException
 
 fun main() {
