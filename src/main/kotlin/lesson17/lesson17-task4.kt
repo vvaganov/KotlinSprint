@@ -2,28 +2,24 @@ package lesson17
 
 fun main() {
 
-    val pac = Package(1, "Moscow")
-    println("Номер посылки: ${pac.numberPackage},\nПункт: ${pac.setLocation},\nКоличство перемещений: ${pac.getCounter}")
-    pac.setLocation = "Kazan"
-    println("Номер посылки: ${pac.numberPackage},\nПункт: ${pac.setLocation},\nКоличство перемещений: ${pac.getCounter}")
-    pac.setLocation = "Ekaterinburg"
-    println("Номер посылки: ${pac.numberPackage},\nПункт: ${pac.setLocation},\nКоличство перемещений: ${pac.getCounter}")
+    val pac = Package()
+    println("Номер посылки: ${pac.numberPackage},\nПункт: ${pac.location},\nКоличство перемещений: ${pac.getCounter}")
+    pac.location = "Kazan"
+    println("Номер посылки: ${pac.numberPackage},\nПункт: ${pac.location},\nКоличство перемещений: ${pac.getCounter}")
+    pac.location = "Ekaterinburg"
+    println("Номер посылки: ${pac.numberPackage},\nПункт: ${pac.location},\nКоличство перемещений: ${pac.getCounter}")
 
 }
 
-class Package(
-    val numberPackage: Int,
-    private val location: String
-) {
-
+class Package {
     private var movementCounter: Int = 0
 
-    var setLocation: String = location
-        get() = field
+    val numberPackage: Int = 1
+
+    var location: String = "Moscow"
         set(value) {
             field = value
             movementCounter++
-
         }
 
     val getCounter: Int
