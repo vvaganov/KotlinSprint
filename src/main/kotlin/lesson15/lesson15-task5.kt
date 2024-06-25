@@ -39,7 +39,6 @@ abstract class Transport : Movable, Passengerable {
 class Track(override val maxPass: Int = 1, override val maxCargo: Int = 2000) : Transport(), Truckable {
 
 
-
     override fun move() = println("Грузовик начал движение")
 
     override fun boardPassengers(numberPassengers: Int) {
