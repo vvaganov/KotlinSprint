@@ -17,7 +17,7 @@ fun main() {
 
 }
 
-class MyPhoneNumbers(
+class MyPhoneNumber(
     val name: String,
     val phoneNumber: Long,
     var company: String? = null
