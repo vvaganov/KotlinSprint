@@ -13,12 +13,18 @@ fun main() {
 class Quiz(
     private val question: String,
     private var answer: String,
-){
+) {
 
     val getQuestion: String
-        get() {return question}
+        get() {
+            return question
+        }
 
     var getSetAnswer: String
-        get() {return answer}
-        set(value) {answer = value}
+        get() {
+            return answer
+        }
+        set(value) {
+            answer = value
+        }
 }
