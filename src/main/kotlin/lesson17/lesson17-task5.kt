@@ -25,6 +25,4 @@ class User(
             login = value
             println("Вы успешно изменили логин")
         }
-
-
 }
