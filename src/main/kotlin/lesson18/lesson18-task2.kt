@@ -1,34 +1,45 @@
 package lesson18
 
 fun main() {
-    val dice = listOf<DiceFour>(DiceFour(), DiceSix(), DiceEight())
+    val dice = listOf<Dice>(DiceFour(4), DiceSix(6), DiceEight(8))
     throwAllDice(dice)
 }
 
-open class DiceFour{
+abstract class Dice {
+    abstract val numberFace: Int
+    abstract fun throwDice()
+}
 
-    open fun throwDice(){
-        val result = (1..4).random()
+class DiceFour(
+    override val numberFace: Int,
+) : Dice() {
+
+    override fun throwDice() {
+        val result = (1..numberFace).random()
         println("Брошен кубик с 4 гранями, выпало число $result")
     }
 }
 
-class DiceSix: DiceFour(){
+class DiceSix(
+    override val numberFace: Int,
+) : Dice() {
 
     override fun throwDice() {
-        val result = (1..6).random()
+        val result = (1..numberFace).random()
         println("Брошен кубик с 6 гранями, выпало число $result")
     }
 }
 
-class DiceEight:DiceFour(){
+class DiceEight(
+    override val numberFace: Int,
+) : Dice() {
 
     override fun throwDice() {
-        val result = (1..8).random()
+        val result = (1..numberFace).random()
         println("Брошен кубик с 8 гранями, выпало число $result")
     }
 }
 
-fun throwAllDice(dice: List<DiceFour>){
+fun throwAllDice(dice: List<Dice>) {
     dice.forEach { it.throwDice() }
 }
