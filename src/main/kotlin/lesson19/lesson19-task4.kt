@@ -3,6 +3,7 @@ package lesson19
 fun main() {
 
     val tank = Tank()
+    println(tank.getPatron())
     tank.loadCannon(Patron.GREEN)
     tank.toFireCannon()
     tank.loadCannon(Patron.BLUE)
@@ -32,7 +33,9 @@ enum class Patron {
 }
 
 class Tank {
-    private lateinit var patronType: Patron
+    private var patronType: Patron? = null
+
+    fun getPatron() = patronType
 
     fun loadCannon(patron: Patron) {
         patronType = patron
@@ -40,6 +43,6 @@ class Tank {
     }
 
     fun toFireCannon() {
-        println("Выстрел партоном $patronType, нанесенный ущерб - ${patronType.getDamageCaused()} ")
+        println("Выстрел партоном $patronType, нанесенный ущерб - ${patronType?.getDamageCaused()} ")
     }
 }
