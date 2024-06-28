@@ -3,50 +3,40 @@ package lesson18
 fun main() {
 
     val screen = Screen()
-    screen.draw(10, 20, 30, 40)
-    screen.draw(10, 20)
-    screen.draw(15.3f, 20.5f)
+    screen.draw(Circle(10,20,50))
+    screen.draw(Point(10.5f, 30.2f))
+    screen.draw(Square(20.3, 30.5, 50, 70))
 }
 
-class Circle {
-    var x: Float = 0f
-    var y: Float = 0f
-}
+class Circle(
+    var x: Any,
+    var y: Any,
+    var r: Any,
+) {}
 
-class Square {
-    var x1: Int = 0
-    var y1: Int = 0
-    var x2: Int = 0
-    var y2: Int = 0
-}
+class Square(
+    var x1: Any,
+    var y1: Any,
+    var x2: Any,
+    var y2: Any,
+) {}
 
-private class Point {
-    var x: Int = 0
-    var y: Int = 0
-}
+class Point(
+    var x: Any,
+    var y: Any,
+)
 
 class Screen {
 
-    fun draw(x1: Int, y1: Int, x2: Int, y2: Int) {
-        val square = Square()
-        square.x1 = x1
-        square.y1 = y1
-        square.x2 = x2
-        square.y2 = y2
-        println("Нарисовать квадрат c координатами x1 - $x1, y1 - $y1, x2 - $x2, y2 - $y2")
+    fun draw(square: Square) {
+        println("Нарисовать квадрат c координатами: x1 - ${square.x1}, y1 - ${square.y1}, x2 - ${square.x2}, y2 - ${square.y2}")
     }
 
-    fun draw(x: Int, y: Int) {
-        val point = Point()
-        point.x = x
-        point.y = y
-        println("Нарисовать точку c координатами x - $x, y - $y")
+    fun draw(circle: Circle) {
+        println("Нарисовать точку c координатами центра: x - ${circle.x}, y - ${circle.y}, радиус ${circle.r}")
     }
 
-    fun draw(x: Float, y: Float) {
-        val circle = Circle()
-        circle.x = x
-        circle.y = y
-        println("Нарисовать круг с координатами x - $x, y - $y")
+    fun draw(point: Point) {
+        println("Нарисовать круг с координатами: x - ${point.x}, y - ${point.y}")
     }
 }
