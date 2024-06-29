@@ -12,23 +12,17 @@ fun main() {
 }
 
 enum class Category {
-    CLOTHES {
-        override fun gettextName(): String {
-            return "Одежда"
-        }
-    },
-    OFFICE_SUPPLIES {
-        override fun gettextName(): String {
-            return "Канцелярские товары"
-        }
-    },
-    DIFFERENT {
-        override fun gettextName(): String {
-            return "Разное"
-        }
-    };
+    CLOTHES,
+    OFFICE_SUPPLIES,
+    DIFFERENT,
+}
 
-    abstract fun gettextName(): String
+fun getCategory(category: Category): String {
+    return when (category) {
+        Category.CLOTHES -> "Одежда"
+        Category.OFFICE_SUPPLIES -> "Канцелярские товары"
+        Category.DIFFERENT -> "Разное"
+    }
 }
 
 class Product(
@@ -36,7 +30,6 @@ class Product(
     private val category: Category,
 ) {
     fun getProductInfo() {
-        println("Товар id - $id, категория - ${category.gettextName()} ")
-
+        println("Товар id - $id, категория - ${getCategory(category)}")
     }
 }
