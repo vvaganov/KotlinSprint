@@ -3,7 +3,7 @@ package lesson19
 fun main() {
 
     val tank = Tank()
-    println(tank.getPatron())
+    tank.toFireCannon()
     tank.loadCannon(Patron.GREEN)
     tank.toFireCannon()
     tank.loadCannon(Patron.BLUE)
@@ -12,30 +12,14 @@ fun main() {
     tank.toFireCannon()
 }
 
-enum class Patron {
-    BLUE {
-        override fun getDamageCaused(): Int {
-            return 5
-        }
-    },
-    GREEN {
-        override fun getDamageCaused(): Int {
-            return 10
-        }
-    },
-    RED {
-        override fun getDamageCaused(): Int {
-            return 20
-        }
-    };
-
-    abstract fun getDamageCaused(): Int
+enum class Patron(val damage: Int) {
+    BLUE(5),
+    GREEN(10),
+    RED(20)
 }
 
 class Tank {
     private var patronType: Patron? = null
-
-    fun getPatron() = patronType
 
     fun loadCannon(patron: Patron) {
         patronType = patron
@@ -43,6 +27,10 @@ class Tank {
     }
 
     fun toFireCannon() {
-        println("Выстрел партоном $patronType, нанесенный ущерб - ${patronType?.getDamageCaused()} ")
+        if (patronType == null) {
+            println("Пушка не заряжена")
+        } else {
+            println("Выстрел партоном $patronType, нанесенный ущерб - ${patronType?.damage} ")
+        }
     }
 }
