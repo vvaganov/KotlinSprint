@@ -3,8 +3,9 @@ package lesson19
 fun main() {
     val ship = Spaceship()
     ship.takeOff()
-    ship.asteroidShoot()
     ship.makeLanding()
+    ship.asteroidShoot()
+
 }
 
 class Spaceship {
@@ -13,7 +14,7 @@ class Spaceship {
     }
 
     fun makeLanding() {
-        TODO()
+//        TODO()
     }
 
     fun asteroidShoot() {
