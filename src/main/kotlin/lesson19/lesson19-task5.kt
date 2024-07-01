@@ -12,7 +12,7 @@ fun main() {
         Выберете пол из вариантов:
         """.trimIndent()
     )
-    Gender.entries.forEach{ println("- ${it.textName}") }
+    Gender.entries.forEach { println("- ${it.textName}") }
 
     for (i in 1..NUMBER_PERSON) {
         println("Введите имя:")
@@ -43,8 +43,3 @@ fun getGender(textName: String): Gender? {
         else -> null
     }
 }
-
-
-
-
-
