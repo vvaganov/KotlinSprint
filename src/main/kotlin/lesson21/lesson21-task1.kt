@@ -2,16 +2,10 @@ package lesson21
 
 const val VOWELS = "aAeEiIoOuU"
 fun main() {
-    val string = "Hello"
-    println(string.vowelCount(string))
+    val string = "Hello World"
+    println(string.vowelCount())
 }
 
-fun String.vowelCount(string: String): Int {
-    var vowelCount = 0
-    for (char in string) {
-        if (char in VOWELS) {
-            vowelCount++
-        }
-    }
-    return vowelCount
+fun String.vowelCount(): Int {
+   return this.count {it in VOWELS}
 }
