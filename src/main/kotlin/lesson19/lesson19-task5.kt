@@ -1,6 +1,6 @@
 package lesson19
 
-const val NUMBER_PERSON = 5
+const val NUMBER_PERSON = 2
 
 fun main() {
     val humanList: MutableList<Human> = mutableListOf<Human>()
@@ -8,12 +8,11 @@ fun main() {
     println(
         """
         Введите имя в формате "Имя"
+        Имя вводить без ковычек!
         Выберете пол из вариантов:
-        - ${Gender.MEN.textName}
-        - ${Gender.WOMEN.textName}
-        Имя и пол воодить без ковычек!
-    """.trimIndent()
+        """.trimIndent()
     )
+    Gender.entries.forEach{ println("- ${it.textName}") }
 
     for (i in 1..NUMBER_PERSON) {
         println("Введите имя:")
