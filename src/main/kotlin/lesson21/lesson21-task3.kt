@@ -4,11 +4,11 @@ fun main() {
     val player = PlayerOne("Bob", 10)
     println(player.health)
     println(player.maxHealth)
-    println(player.isHealthy(player))
+    println(player.isHealthy())
     restoreHealth(player)
     println(player.health)
     println(player.maxHealth)
-    println(player.isHealthy(player))
+    println(player.isHealthy())
 
 }
 
@@ -21,6 +21,6 @@ class PlayerOne(
 
 val restoreHealth: (PlayerOne) -> Unit = { player: PlayerOne -> player.health = player.maxHealth }
 
-fun PlayerOne.isHealthy(player: PlayerOne): Boolean {
-    return player.health == player.maxHealth
+fun PlayerOne.isHealthy(): Boolean {
+    return this.health == this.maxHealth
 }
