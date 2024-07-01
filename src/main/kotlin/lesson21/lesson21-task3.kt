@@ -24,4 +24,3 @@ val restoreHealth: (PlayerOne) -> Unit = { player: PlayerOne -> player.health = 
 fun PlayerOne.isHealthy(player: PlayerOne): Boolean {
     return player.health == player.maxHealth
 }
-
