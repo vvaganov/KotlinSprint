@@ -16,6 +16,3 @@ class Gamer(
 }
 
 val restoreHealth: (Gamer) -> Unit = { gamer: Gamer -> gamer.health = gamer.maxHealth }
-
-
-
