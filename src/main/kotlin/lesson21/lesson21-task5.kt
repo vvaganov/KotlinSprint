@@ -14,7 +14,5 @@ fun main() {
 }
 
 fun Map<String, Int>.maxCategory(): String {
-    val maxValue = this.values.maxOrNull()
-    val maxValueCategoryList = this.filterValues { it == maxValue }
-    return maxValueCategoryList.keys.random()
+    return this.filterValues { it == this.values.maxOrNull() }.keys.random()
 }
