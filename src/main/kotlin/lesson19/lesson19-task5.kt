@@ -1,6 +1,6 @@
 package lesson19
 
-const val NUMBER_PERSON = 2
+const val NUMBER_PERSON = 5
 
 fun main() {
     val humanList: MutableList<Human> = mutableListOf<Human>()
@@ -15,11 +15,8 @@ fun main() {
     Gender.entries.forEach { println("- ${it.textName}") }
 
     for (i in 1..NUMBER_PERSON) {
-        println("Введите имя:")
-        val name = readln()
-        println("Введите пол:")
-        val gender = readln()
-        humanList.add(Human(name, getGender(gender)))
+
+        humanList.add(getHuman())
     }
 
     humanList.forEach { println("Имя ${it.name} -  пол: ${(it.gender?.textName) ?: "не указан"}") }
@@ -36,10 +33,15 @@ enum class Gender(val textName: String) {
     WOMEN("Женский");
 }
 
-fun getGender(textName: String): Gender? {
-    return when (textName) {
-        Gender.MEN.textName -> Gender.MEN
-        Gender.WOMEN.textName -> Gender.WOMEN
-        else -> null
+fun getHuman(): Human {
+    println("Введите имя:")
+    val inputName = readln()
+    println("Введите пол:")
+    val inputGender = readln()
+    var gender: Gender? = null
+    when (inputGender) {
+        Gender.MEN.textName -> gender = Gender.MEN
+        Gender.WOMEN.textName -> gender = Gender.WOMEN
     }
+    return Human(inputName, gender)
 }
