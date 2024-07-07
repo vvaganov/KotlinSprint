@@ -5,21 +5,13 @@ const val NUMBER_PERSON = 5
 fun main() {
     val humanList: MutableList<Human> = mutableListOf<Human>()
 
-    println(
-        """
-        Введите имя в формате "Имя"
-        Имя вводить без ковычек!
-        Выберете пол из вариантов:
-        """.trimIndent()
-    )
-    Gender.entries.forEach { println("- ${it.textName}") }
-
     for (i in 1..NUMBER_PERSON) {
-
-        humanList.add(getHuman())
+        println("Введите имя:")
+        val inputName = readln()
+        humanList.add(Human(inputName, getGender()))
     }
 
-    humanList.forEach { println("Имя ${it.name} -  пол: ${(it.gender?.textName) ?: "не указан"}") }
+    humanList.forEach { println("Имя ${it.name} -  пол: ${(it.gender?.textName)}") }
 
 }
 
@@ -33,15 +25,21 @@ enum class Gender(val textName: String) {
     WOMEN("Женский");
 }
 
-fun getHuman(): Human {
-    println("Введите имя:")
-    val inputName = readln()
+fun getGender(): Gender {
+    val gender: Gender
     println("Введите пол:")
-    val inputGender = readln()
-    var gender: Gender? = null
-    when (inputGender) {
-        Gender.MEN.textName -> gender = Gender.MEN
-        Gender.WOMEN.textName -> gender = Gender.WOMEN
+    while (true) {
+        Gender.entries.forEach { println("- ${it.textName}") }
+        val asd = readln()
+        if (asd == Gender.MEN.textName) {
+            gender = Gender.MEN
+            break
+        } else if (asd == Gender.WOMEN.textName) {
+            gender = Gender.WOMEN
+            break
+        } else {
+            println("Введите корректный пол:")
+        }
     }
-    return Human(inputName, gender)
+    return gender
 }
