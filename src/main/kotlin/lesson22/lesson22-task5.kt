@@ -9,19 +9,18 @@ fun main() {
         4.396
     )
 
-    val (nameLocation, descriptionLocation, dateAndTime, distancePlanetEarth) = galaxyObject
     println(
         """
-        Наименование места -$nameLocation
-        Описание места - $descriptionLocation
-        Дата и время - $dateAndTime
-        Расстояние от земли - $distancePlanetEarth
+        Наименование места - ${galaxyObject.component1()}
+        Описание места - ${galaxyObject.component2()}
+        Дата и время - ${galaxyObject.component3()}
+        Расстояние от земли - ${galaxyObject.component4()}
     """.trimIndent()
     )
 
 }
 
-data class GalacticGuide(
+data class GalacticGuide constructor(
     val nameLocation: String,
     val descriptionLocation: String,
     val dateAndTime: String,
